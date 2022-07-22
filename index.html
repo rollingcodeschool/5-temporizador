@@ -17,10 +17,31 @@
     <title>Reloj digital</title>
 </head>
 <body>
-    <main class="my-5 container text-center">
-        <section class="fechaHora text-light fs-1 d-flex flex-column justify-content-center align-content-center ">
-            <p id="fecha">1 de junio de 2022</p>
-            <p id="hora">00:00:00</p>
+    <header class="text-light container">
+        <h1 class="text-center mt-5">Temporizador</h1>
+        <hr>
+    </header>
+    <main class="container ">
+        <section>
+          <article class="bg-light rounded p-3">
+            Seleccione un temporizador
+            <div class="list-group mt-4">
+              <button type="button" class="list-group-item list-group-item-action" >
+                Temporizador de 15 segundos
+              </button>
+              <button type="button" class="list-group-item list-group-item-action">Temporizador de 30 segundos</button>
+              <button type="button" class="list-group-item list-group-item-action">Temporizador de 1 minuto</button>
+              <button type="button" class="list-group-item list-group-item-action">Temporizador de 2 minuto</button>
+            </div>
+          </article>
+          <article>
+            <p id="tiempo" class="fechaHora fs-1 text-light text-center mt-4">00:00:00</p>
+            <div class="text-center">
+              <button class="btn btn-success">Iniciar</button>
+              <button class="btn btn-primary">Reiniciar</button>
+              <button class="btn btn-danger">Detener</button>
+            </div>
+          </article> 
         </section>
     </main>
     <footer class="text-center bg-dark text-light py-3">
