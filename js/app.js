@@ -1,11 +1,7 @@
 let tiempo = document.querySelector("#tiempo");
 let btnIniciar = document.querySelector("#btnIniciar");
 let btnDetener = document.querySelector("#btnDetener");
-let intervalo =0;
-
-let minutos = 0,
-  segundos = 0;
-console.log(tiempo);
+let intervalo =0, minutos = 0, segundos = 0;
 
 function establecerTiempo(temp) {
   btnIniciar.className = "btn btn-success";
@@ -28,31 +24,23 @@ function establecerTiempo(temp) {
 function iniciar() {
   btnIniciar.className = "btn btn-success disabled";
   btnDetener.className = "btn btn-danger";
- 
-
   if (minutos > 0) {
     minutos--;
     segundos = 60;
     intervalo = setInterval(() => {
       segundos--;
-      tiempo.innerHTML =
-        segundos < 10
+      tiempo.innerHTML = segundos < 10
           ? `0${minutos}: 0${segundos}`
           : `0${minutos}: ${segundos}`;
-      console.log(segundos);
       if (minutos === 0 && segundos === 0) {clearInterval(intervalo);  btnDetener.className = "btn btn-danger disabled";}
-      if (segundos === 0 && minutos > 0) {
-        minutos--;
-      }
+      if (segundos === 0 && minutos > 0){ minutos--, segundos=60};
     }, 1000);
     return;
   }
   if (segundos > 0 && minutos === 0) {
-    console.log("en el de segundos");
     intervalo = setInterval(() => {
       segundos--;
       tiempo.innerHTML = segundos < 10 ? `00: 0${segundos}` : `00: ${segundos}`;
-      console.log(segundos);
       if (segundos === 0) {
         clearInterval(intervalo);
         btnDetener.className = "btn btn-danger disabled";
@@ -65,8 +53,6 @@ function detener(){
     tiempo.innerHTML =`00: 00`;
     minutos=0, segundos= 0;
     clearInterval(intervalo);
-    console.log(minutos);
     btnIniciar.className = "btn btn-success disabled";
-  btnDetener.className = "btn btn-danger disabled" ;
- 
+   btnDetener.className = "btn btn-danger disabled" ;
 }
